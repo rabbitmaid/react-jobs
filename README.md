@@ -14,3 +14,4 @@ Currently, two official plugins are available:
 - React Spinners
 - React Toastify
 - React Router Dom
+- JSON Server (development backend)
