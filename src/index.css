@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
-@theme {
-    --font-sans: "Roboto", "sans-serif";
+@font-face {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100 900;
+    font-style: normal;
+    src: url("./assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf"); 
+}
+
+:root {
+    --font-sans: "Roboto", sans-serif;
 }
