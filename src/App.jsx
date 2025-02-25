@@ -10,11 +10,9 @@ import EditJobPage from './pages/EditJobPage';
 
 function App() {
 
-  const API_URL = import.meta.env.VITE_API_URL;
-
   // Add New Job
   const addJob = async (newJob) => {
-    await fetch(`${API_URL}/api/jobs`, {
+    await fetch(`/api/jobs`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -27,7 +25,7 @@ function App() {
 
   // Delete Job
   const deleteJob = async (id) => {
-    await fetch(`${API_URL}/api/jobs/${id}`, {
+    await fetch(`/api/jobs/${id}`, {
       method: 'DELETE'
     });
 
@@ -37,7 +35,7 @@ function App() {
 
   // Update Job
   const updateJob = async (job) => {
-    await fetch(`${API_URL}/api/jobs/${job.id}`, {
+    await fetch(`/api/jobs/${job.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -56,7 +54,7 @@ function App() {
         <Route path='/add-job' element={<AddJobPage addJobSubmit={addJob} />} />
         <Route path='/edit-job/:id' element={<EditJobPage updateJobSubmit={updateJob} />} loader={jobLoader} />
         <Route path='/jobs/:id' element={<JobPage deleteJob={deleteJob} />} loader={jobLoader} />
-        <Route path='*' element={<NotFoundPage />}/>
+        <Route path='/*' element={<NotFoundPage />}/>
       </Route>
     )
   );
