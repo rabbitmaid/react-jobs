@@ -14,10 +14,12 @@ function App() {
   const addJob = async (newJob) => {
     await fetch('/api/jobs', {
       method: 'POST',
-      header: {
+      headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newJob)
+    }).then(response => {
+        console.log(response.json());
     });
 
     return;
@@ -37,7 +39,7 @@ function App() {
   const updateJob = async (job) => {
     await fetch(`/api/jobs/${job.id}`, {
       method: 'PUT',
-      header: {
+      headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(job)
