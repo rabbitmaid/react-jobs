@@ -112,8 +112,10 @@ function JobPage({ deleteJob }) {
   );
 }
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const jobLoader = async ({ params }) => {
-  const response = await fetch(`/api/jobs/${params.id}`);
+  const response = await fetch(`${API_URL}/api/jobs/${params.id}`);
   const data = response.json();
   return data;
 };

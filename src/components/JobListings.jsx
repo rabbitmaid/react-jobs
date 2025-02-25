@@ -8,11 +8,13 @@ function JobListings({ isHome = false }) {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchJobs = async () => {
-      const apiUrl = isHome ? "/api/jobs?_limit=3" : "/api/jobs";
+      const url = isHome ? `${API_URL}/api/jobs?_limit=3` : `${API_URL}/api/jobs`;
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(url);
         const data = await response.json();
         setJobs(data);
       } catch (error) {

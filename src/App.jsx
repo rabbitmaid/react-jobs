@@ -10,16 +10,16 @@ import EditJobPage from './pages/EditJobPage';
 
 function App() {
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   // Add New Job
   const addJob = async (newJob) => {
-    await fetch('/api/jobs', {
+    await fetch(`${API_URL}/api/jobs`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newJob)
-    }).then(response => {
-        console.log(response.json());
     });
 
     return;
@@ -27,7 +27,7 @@ function App() {
 
   // Delete Job
   const deleteJob = async (id) => {
-    await fetch(`/api/jobs/${id}`, {
+    await fetch(`${API_URL}/api/jobs/${id}`, {
       method: 'DELETE'
     });
 
@@ -37,7 +37,7 @@ function App() {
 
   // Update Job
   const updateJob = async (job) => {
-    await fetch(`/api/jobs/${job.id}`, {
+    await fetch(`${API_URL}/api/jobs/${job.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
