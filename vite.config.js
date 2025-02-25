@@ -5,13 +5,13 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: {
+ /*  server: {
     proxy: {
       '/api' : {
-        target: 'http://localhost:8000/api',
+        target: 'https://server.rabbitmaid.com/api',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/,''),
+        // rewrite: (path) => path.replace(/^\/api/,''),
       }
     }
-  }
+  } */
 })
